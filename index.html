@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chinnarao Portfolio</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    /* Global Styles */
+    :root {
+      --primary-color: #3498db;
+      --secondary-color: #2c3e50;
+      --accent-color: #e74c3c;
+      --light-color: #ecf0f1;
+      --dark-color: #2c3e50;
+      --text-color: #333;
+      --text-light: #7f8c8d;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background-color: #f9f9f9;
+    }
+    
+    a {
+      text-decoration: none;
+      color: var(--primary-color);
+      transition: all 0.3s ease;
+    }
+    
+    a:hover {
+      color: var(--accent-color);
+    }
+    
+    ul {
+      list-style: none;
+    }
+    
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    
+    /* Header Styles */
+    header {
+      background-color: var(--secondary-color);
+      color: white;
+      padding: 20px 0;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    }
+    
+    header .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    
+    header h1 {
+      font-size: 1.8rem;
+      font-weight: 700;
+    }
+    
+    nav {
+      display: flex;
+      gap: 20px;
+    }
+    
+    nav a {
+      color: white;
+      font-weight: 500;
+      padding: 5px 10px;
+      border-radius: 4px;
+    }
+    
+    nav a:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    
+    /* Hero Section */
+    #about {
+      padding: 120px 0 60px;
+      background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+      color: white;
+    }
+    
+    #about .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+    
+    #about h1 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    
+    #about p {
+      max-width: 800px;
+      margin-bottom: 15px;
+      font-size: 1.1rem;
+    }
+    
+    /* Sections */
+    section {
+      padding: 60px 0;
+    }
+    
+    section h1, section h2 {
+      text-align: center;
+      margin-bottom: 40px;
+      color: var(--secondary-color);
+      position: relative;
+    }
+    
+    section h1::after, section h2::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: var(--primary-color);
+      margin: 15px auto;
+      border-radius: 2px;
+    }
+    
+    /* Skills Section */
+    #skills {
+      background-color: white;
+    }
+    
+    .skills-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .skill-category {
+      background: var(--light-color);
+      padding: 25px;
+      border-radius: 8px;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+      transition: transform 0.3s ease;
+    }
+    
+    .skill-category:hover {
+      transform: translateY(-5px);
+    }
+    
+    .skill-category h1 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      color: var(--primary-color);
+    }
+    
+    .skill-category ul li {
+      padding: 8px 0;
+      border-bottom: 1px solid #ddd;
+      display: flex;
+      align-items: center;
+    }
+    
+    .skill-category ul li:last-child {
+      border-bottom: none;
+    }
+    
+    .skill-category ul li i {
+      margin-right: 10px;
+      color: var(--primary-color);
+    }
+    
+    /* Projects Section */
+    #project {
+      background-color: #f1f5f9;
+    }
+    
+    .projects-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 30px;
+    }
+    
+    .project-card {
+      background: white;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease;
+    }
+    
+    .project-card:hover {
+      transform: translateY(-5px);
+    }
+    
+    .project-content {
+      padding: 25px;
+    }
+    
+    .project-card h1 {
+      font-size: 1.5rem;
+      margin-bottom: 15px;
+      text-align: left;
+      color: var(--secondary-color);
+    }
+    
+    .project-card h1::after {
+      margin: 10px 0;
+    }
+    
+    .project-card p {
+      margin-bottom: 15px;
+      color: var(--text-light);
+    }
+    
+    .project-link {
+      display: inline-block;
+      background: var(--primary-color);
+      color: white;
+      padding: 8px 15px;
+      border-radius: 4px;
+      font-weight: 500;
+      margin-top: 10px;
+    }
+    
+    .project-link:hover {
+      background: var(--accent-color);
+      color: white;
+    }
+    
+    /* Contact Section */
+    #contact {
+      text-align: center;
+    }
+    
+    .contact-info {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin-top: 40px;
+    }
+    
+    .contact-item {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding: 15px 25px;
+      background: var(--light-color);
+      border-radius: 8px;
+      transition: all 0.3s ease;
+    }
+    
+    .contact-item:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .contact-item:hover a {
+      color: white;
+    }
+    
+    .contact-item i {
+      font-size: 1.5rem;
+    }
+    
+    /* Footer */
+    footer {
+      background: var(--secondary-color);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      margin-top: 60px;
+    }
+    
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      header .container {
+        flex-direction: column;
+        gap: 15px;
+      }
+      
+      nav {
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+      
+      #about {
+        padding: 100px 0 40px;
+      }
+      
+      #about h1 {
+        font-size: 2rem;
+      }
+      
+      .projects-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Chinnarao Kandala</h1>
+      <nav>
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#project">Projects</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <section id="about">
+    <div class="container">
+      <h1>Chinnarao Kandala</h1>
+      <p>Hi, my name is Chinnarao Kandala. I'm from Srikakulam. I completed my B.Tech in Electronics and Communication Engineering from Avanthi's Research and Technological Academy. During my B.Tech, I worked on a project called IoT Based Dual Axis Solar Tracking System.</p>
+      <p>An IoT-based dual-axis solar tracking system offers numerous benefits over traditional solar tracking systems. By integrating IoT sensors and devices, we can increase the efficiency of solar energy production, improve energy output, and reduce maintenance costs over time.</p>
+      <p>Technically, I'm comfortable with Java Core and Advanced, HTML, CSS, Bootstrap. Coming to frameworks I have knowledge of Spring Boot, Spring. I have knowledge of MySQL database. I also have an idea of some computer skills.</p>
+      <p>Apart from studies, I enjoy dancing, cooking, exploring new things on the internet. I'm a calm and focused person, and I like to keep learning and improving.</p>
+      <p>Right now I'm looking for a Software Developer role</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <div class="container">
+      <h1>Skills</h1>
+      <div class="skills-container">
+        <div class="skill-category">
+          <h1>Programming Skills</h1>
+          <ul>
+            <li><i class="fas fa-code"></i> Java (Core & Advanced)</li>
+            <li><i class="fas fa-code"></i> Python</li>
+            <li><i class="fas fa-code"></i> HTML</li>
+            <li><i class="fas fa-code"></i> CSS</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h1>Frameworks</h1>
+          <ul>
+            <li><i class="fas fa-cogs"></i> Spring Boot</li>
+            <li><i class="fas fa-cogs"></i> Spring</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h1>Databases</h1>
+          <ul>
+            <li><i class="fas fa-database"></i> MySQL</li>
+            <li><i class="fas fa-database"></i> MongoDB</li>
+          </ul>
+        </div>
+        <div class="skill-category">
+          <h1>Soft Skills</h1>
+          <ul>
+            <li><i class="fas fa-comments"></i> Communication Skills</li>
+            <li><i class="fas fa-smile"></i> Positive Attitude</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="project">
+    <div class="container">
+      <h1>Projects</h1>
+      <div class="projects-container">
+        <div class="project-card">
+          <div class="project-content">
+            <h1>Tune Hub</h1>
+            <a href="https://github.com/chinnaraokandala/TuneHub" class="project-link">View Project</a>
+            <p>Developed a full-stack music streaming platform enabling user registration, login, song streaming, and premium subscription features.</p>
+            <p>Built admin panel functionalities to add songs, manage playlists, and view user activity, improving content control and monitoring.</p>
+            <p>Implemented premium access with payment integration, ensuring feature access control based on subscription status.</p>
+            <p>Integrated JavaEE, Spring Boot, Hibernate, HTML/CSS, and MySQL to deliver a responsive and scalable web application.</p>
+          </div>
+        </div>
+        <div class="project-card">
+          <div class="project-content">
+            <h1>Bank Application Demo</h1>
+            <a href="https://github.com/chinnaraokandala/Bank-Application-Model" class="project-link">View Project</a>
+            <p>Developed a full-stack banking application using Spring Boot, Thymeleaf, Spring Security, and MySQL, enabling users to register, log in, and securely manage their accounts.</p>
+            <p>Implemented core features like deposit, withdrawal, fund transfer, and transaction history tracking with real-time balance updates.</p>
+            <p>Ensured secure authentication and authorization using Spring Security, improving access control and user data protection.</p>
+            <p>Designed and integrated a transaction recording mechanism to log all account activities, enhancing system transparency.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <div class="container">
+      <h2>Contact</h2>
+      <div class="contact-info">
+        <div class="contact-item">
+          <i class="fas fa-envelope"></i>
+          <a href="mailto:kandalachinnarao2001@gmail.com">kandalachinnarao2001@gmail.com</a>
+        </div>
+        <div class="contact-item">
+          <i class="fas fa-phone"></i>
+          <span>9347319356</span>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-linkedin"></i>
+          <a href="https://www.linkedin.com/in/chinnarao-k/">LinkedIn Profile</a>
+        </div>
+        <div class="contact-item">
+          <i class="fab fa-github"></i>
+          <a href="https://github.com/chinnaraokandala">GitHub Profile</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2023 Chinnarao Kandala. All rights reserved.</p>
+    </div>
+  </footer>
+</body>
+</html>
